@@ -57,6 +57,9 @@ results/
 *.xls
 *.json
 
+# Node modules
+node_modules/
+
 # Ignore large model files if they are too big for GitHub (GitHub has 100MB limit)
 # Uncomment the following lines if your model files exceed GitHub's file size limit:
 # *.pkl
