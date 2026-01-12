@@ -10,6 +10,15 @@ from nltk.stem import WordNetLemmatizer
 tfidf = joblib.load('tfidf_vectorizer.pkl')
 model = joblib.load('sentiment_model.pkl')
 
+
+
+# Download required NLTK data for Streamlit Cloud
+nltk.download('stopwords')
+nltk.download('punkt')
+nltk.download('wordnet')
+nltk.download('omw-1.4')
+
+
 # NLP tools
 stop_words = set(stopwords.words('english'))
 lemmatizer = WordNetLemmatizer()
