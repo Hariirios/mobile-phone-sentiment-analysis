@@ -37,13 +37,17 @@ st.set_page_config(page_title="Mobile Phone Sentiment Analyzer", page_icon="📱
 # Custom CSS styling with dark futuristic background
 css = """
 <style>
-/* Dark futuristic background */
+/* Modern glassmorphism design inspired by Pinterest/Figma */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Background with subtle animated gradient */
 [data-testid="stAppViewContainer"] > .main {
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
     min-height: 100vh;
     position: relative;
+    font-family: 'Inter', sans-serif;
 }
 
 @keyframes gradientBG {
@@ -60,75 +64,104 @@ css = """
 
 /* Content container */
 [data-testid="stAppViewContainer"] > .main > div {
-    background-color: rgba(15, 25, 40, 0.85);
+    background-color: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(10px);
     min-height: 100vh;
     padding: 20px;
 }
 
-/* Card styling */
+/* Modern card styling with glass effect */
 .card {
-    background: rgba(30, 40, 60, 0.9);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(100, 150, 255, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.3s ease;
+    margin-bottom: 25px;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.4);
 }
 
-/* Text area styling */
+/* Text area styling with modern look */
 .stTextArea > label {
     font-size: 18px;
-    font-weight: bold;
-    color: #e0e0ff;
+    font-weight: 600;
+    color: #2c3e50;
+    font-family: 'Inter', sans-serif;
 }
 
-/* Button styling */
+.stTextArea textarea {
+    border-radius: 15px !important;
+    border: 1px solid #e0e6ed !important;
+    padding: 15px !important;
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.stTextArea textarea:focus {
+    border: 1px solid #3498db !important;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2) !important;
+}
+
+/* Button styling with modern gradient */
 .stButton > button {
-    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
     color: white;
     border: none;
-    border-radius: 10px;
-    padding: 15px 30px;
+    border-radius: 16px;
+    padding: 16px 32px;
     font-size: 18px;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    font-weight: 600;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.5px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 20px rgba(106, 17, 203, 0.3);
+    width: 100%;
 }
 
 .stButton > button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(45deg, #2575fc, #6a11cb);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(106, 17, 203, 0.4);
+    background: linear-gradient(135deg, #2575fc 0%, #6a11cb 100%);
 }
 
-/* Result container */
+.stButton > button:active {
+    transform: translateY(0);
+}
+
+/* Result container with enhanced styling */
 .result-container {
-    background: rgba(40, 50, 70, 0.9);
+    background: rgba(255, 255, 255, 0.9);
     padding: 30px;
-    border-radius: 15px;
-    margin-top: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    border-left: 5px solid #6a11cb;
+    border-radius: 20px;
+    margin-top: 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(255, 255, 255, 0.5);
+    border-left: 6px solid #3498db;
+    text-align: center;
 }
 
-/* Header */
+/* Header with modern typography */
 .header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 45px;
+    padding: 0 20px;
 }
 
 .header h1 {
-    font-size: 3rem;
-    color: #ffffff;
-    margin-bottom: 10px;
-    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    font-size: 2.8rem;
+    color: #2c3e50;
+    margin-bottom: 12px;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -136,44 +169,101 @@ css = """
 }
 
 .header p {
-    font-size: 1.3rem;
-    color: #a0d2ff;
-    max-width: 600px;
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    max-width: 650px;
     margin: 0 auto;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
 }
 
-/* Sentiment styles */
+/* Sentiment styles with enhanced visuals */
 .positive {
-    color: #2ecc71;
-    font-weight: bold;
-    font-size: 28px;
+    color: #27ae60;
+    font-weight: 700;
+    font-size: 32px;
     text-align: center;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 15px 0;
+    text-shadow: 0 2px 4px rgba(39, 174, 96, 0.2);
 }
 
 .negative {
     color: #e74c3c;
-    font-weight: bold;
-    font-size: 28px;
+    font-weight: 700;
+    font-size: 32px;
     text-align: center;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 15px 0;
+    text-shadow: 0 2px 4px rgba(231, 76, 60, 0.2);
 }
 
-/* Info box */
+.confidence-score {
+    font-size: 18px;
+    color: #7f8c8d;
+    font-weight: 500;
+    margin-top: 15px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Info box with modern styling */
 .info-box {
-    background: rgba(35, 45, 65, 0.8);
-    padding: 20px;
-    border-radius: 12px;
-    margin: 20px 0;
-    border-left: 4px solid #3498db;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background: rgba(236, 240, 241, 0.8);
+    padding: 25px;
+    border-radius: 18px;
+    margin: 25px 0;
+    border-left: 5px solid #3498db;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    font-family: 'Inter', sans-serif;
 }
 
-/* Footer */
+.info-box strong {
+    color: #2c3e50;
+}
+
+/* Footer with elegant styling */
 footer {
     text-align: center;
-    color: #a0d2ff;
-    margin-top: 40px;
-    padding: 30px;
-    font-size: 1.1rem;
+    color: #7f8c8d;
+    margin-top: 45px;
+    padding: 35px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+/* Spinner styling */
+div.stSpinner > div > div {
+    background: linear-gradient(135deg, #6a11cb, #2575fc) !important;
+}
+
+/* Column gap adjustment */
+[data-testid="stHorizontalBlock"] {
+    gap: 2rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .header p {
+        font-size: 1rem;
+    }
+    
+    .card {
+        padding: 25px;
+    }
+    
+    .result-container {
+        padding: 25px;
+    }
 }
 </style>
 """
@@ -206,9 +296,9 @@ with col2:
                 
                 # Display result with appropriate styling
                 if prediction.lower() == 'positive':
-                    st.markdown(f'<div class="result-container"><p>Your review sentiment is:</p><p class="positive">✅ POSITIVE</p><p style="text-align: center;">Confidence: {confidence:.2f}</p></div>', unsafe_allow_html=True)
+                    st.markdown(f'<div class="result-container"><p style="font-size: 20px; font-weight: 600; margin-bottom: 15px; color: #2c3e50;">Your review sentiment is:</p><p class="positive">✅ POSITIVE</p><p class="confidence-score">Confidence: {confidence:.2f}</p></div>', unsafe_allow_html=True)
                 else:
-                    st.markdown(f'<div class="result-container"><p>Your review sentiment is:</p><p class="negative">❌ NEGATIVE</p><p style="text-align: center;">Confidence: {confidence:.2f}</p></div>', unsafe_allow_html=True)
+                    st.markdown(f'<div class="result-container"><p style="font-size: 20px; font-weight: 600; margin-bottom: 15px; color: #2c3e50;">Your review sentiment is:</p><p class="negative">❌ NEGATIVE</p><p class="confidence-score">Confidence: {confidence:.2f}</p></div>', unsafe_allow_html=True)
         else:
             st.markdown('<div class="info-box">Please enter a review to analyze.</div>', unsafe_allow_html=True)
     else:
@@ -216,8 +306,8 @@ with col2:
     st.markdown('</div>', unsafe_allow_html=True)
 
 # Additional info
-st.markdown('<div class="info-box" style="margin-top: 30px;"><p><strong>Tip:</strong> Enter a review about a mobile phone to analyze whether the sentiment is positive or negative. Our ML model will classify the sentiment based on the text you provide.</p></div>', unsafe_allow_html=True)
+st.markdown('<div class="info-box" style="margin-top: 30px;"><p><strong>💡 Tip:</strong> Enter a review about a mobile phone to analyze whether the sentiment is positive or negative. Our ML model will classify the sentiment based on the text you provide.</p></div>', unsafe_allow_html=True)
 
 # Add footer
 st.markdown("---")
-st.markdown("<footer>Built with ❤️ using Streamlit and Machine Learning</footer>", unsafe_allow_html=True)
+st.markdown("<footer>Built using Streamlit and Machine Learning</footer>", unsafe_allow_html=True)
