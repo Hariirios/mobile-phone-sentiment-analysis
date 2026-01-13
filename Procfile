@@ -1,0 +1,1 @@
+web: cd react-app && node server.js
